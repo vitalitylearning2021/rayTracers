@@ -20,9 +20,9 @@ The code demonstrates a simple GPU-based ray tracing implementation using **Numb
 ### Key Features
 
 1. **Kernel function** written in Numba, utilizing device functions for:
-   - Vector normalization
-   - Dot product computation
-   - Ray-sphere intersection tests
+   Vector normalization
+   Dot product computation
+   Ray-sphere intersection tests
 2. Customizable ray-object intersection logic, making the rendering pipeline adaptable to other geometric primitives.
 3. Color computation based on the surface normal at the intersection point.
 
