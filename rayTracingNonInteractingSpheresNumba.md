@@ -95,58 +95,25 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
 
 ### 3. Color Computation
 
-The color of each pixel is computed based on the surface normal at the intersection point. The surface normal \(\mathbf{N}\) is:
-\[
-\mathbf{N} = \frac{\mathbf{P} - \mathbf{C}}{R}
-\]
-where \(\mathbf{P}\) is the intersection point.
+The color of each pixel is computed based on the surface normal at the intersection point. The surface normal $\mathbf{N}$ is:
+
+$$\mathbf{N} = \frac{\mathbf{P} - \mathbf{C}}{R}$$
+
+where $\mathbf{P}$ is the intersection point.
 
 The computed normal is used to derive the color using the following mapping:
-\[
-\text{Color} = 0.5 \cdot (\mathbf{N} + 1.0)
-\]
-This maps the normal components from the range \([-1, 1]\) to \([0, 1]\) for RGB representation.
+
+$$\text{Color} = 0.5 \cdot (\mathbf{N} + 1.0)$$
+
+This maps the normal components from the range $[-1, 1]$ to $[0, 1]$ for RGB representation.
 
 ---
 
-## 4. Customizability
+### 4. Customizability
 
 The `ray_sphere_intersection` function can be replaced with other geometric intersection tests, such as ray-triangle intersections, to render scenes with arbitrary geometries.
 
-### Example: Ray-Triangle Intersection
+#### Example: Ray-Triangle Intersection
 A similar quadratic solution can be derived for triangle meshes, enabling more complex object rendering.
 
----
-
-## 5. Running the Code
-
-### Setup
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<username>/<repository-name>.git
-   cd <repository-name>
-   ```
-2. Install dependencies:
-   ```bash
-   pip install numba numpy matplotlib
-   ```
-
-3. Run the script:
-   ```bash
-   python ray_tracing.py
-   ```
-
-### Output
-The rendered image will display spheres with colors mapped from their normals.
-
----
-
-## 6. Future Enhancements
-
-1. Add lighting models (Phong, Lambertian) for realistic shading.
-2. Implement additional geometric primitives (e.g., triangles, planes).
-3. Optimize performance for larger scenes using advanced GPU techniques.
-
-Feel free to modify the code to experiment with new rendering techniques and geometric primitives!
 
