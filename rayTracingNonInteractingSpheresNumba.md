@@ -19,10 +19,7 @@ The code demonstrates a simple GPU-based ray tracing implementation using **Numb
 
 ### Key Features
 
-1. **Kernel function** written in Numba, utilizing device functions for:
-   Vector normalization
-   Dot product computation
-   Ray-sphere intersection tests
+1. **Kernel function** written in Numba, utilizing device functions for: a) Vector normalization; b) Dot product computation; c) Ray-sphere intersection tests.
 2. Customizable ray-object intersection logic, making the rendering pipeline adaptable to other geometric primitives.
 3. Color computation based on the surface normal at the intersection point.
 
@@ -48,19 +45,19 @@ The `render` function is the main kernel that performs ray tracing. It works as 
 
 The ray-sphere intersection is derived from the parametric equation of a ray and the implicit equation of a sphere:
 
-### Mathematical Derivation
+#### Mathematical Derivation
 
 1. **Ray Equation**:
-   \[
-   \mathbf{R}(t) = \mathbf{O} + t \cdot \mathbf{D}
-   \]
+   
+   $$mathbf{R}(t) = \mathbf{O} + t \cdot \mathbf{D}$$
+   
    where:
-   - \(\mathbf{R}(t)\): A point on the ray at parameter \(t\),
-   - \(\mathbf{O}\): Ray origin,
-   - \(\mathbf{D}\): Ray direction (normalized vector),
-   - \(t\): Parameter along the ray.
+   - $\mathbf{R}(t)$: A point on the ray at parameter $t$,
+   - $\mathbf{O}$: Ray origin,
+   - $\mathbf{D}$: Ray direction (normalized vector),
+   - $t$: Parameter along the ray.
 
-2. **Sphere Equation**:
+3. **Sphere Equation**:
    \[
    \|\mathbf{P} - \mathbf{C}\|^2 = R^2
    \]
@@ -69,7 +66,7 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
    - \(\mathbf{C}\): Center of the sphere,
    - \(R\): Radius of the sphere.
 
-3. **Intersection**:
+4. **Intersection**:
    Substituting the ray equation into the sphere equation:
    \[
    \|\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2
