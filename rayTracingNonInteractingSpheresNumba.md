@@ -1,8 +1,23 @@
-# GPU Ray Tracing with Numba
+---
+layout: default
+title: GPU Ray Tracing with Numba for Multiple Non-Interacting Spheres
+---
 
-This repository demonstrates a simple GPU-based ray tracing implementation using **Numba**. The implementation traces rays from a light source to a collection of spheres and calculates the resulting pixel colors.
+<script type="text/javascript">
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  }
+};
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
 
-## Key Features
+The code demonstrates a simple GPU-based ray tracing implementation using **Numba**. The implementation traces rays from a light source to a collection of spheres. No sphere-sphere interaction is accounted for.
+
+### Key Features
 
 1. **Kernel function** written in Numba, utilizing device functions for:
    - Vector normalization
@@ -13,15 +28,15 @@ This repository demonstrates a simple GPU-based ray tracing implementation using
 
 ---
 
-## 1. Kernel Function
+### 1. Kernel Function
 
 The `render` function is the main kernel that performs ray tracing. It works as follows:
 - Computes the origin and direction of rays for each pixel in the image.
 - Tests for intersections with all spheres in the scene using the `ray_sphere_intersection` device function.
 - Calculates the color based on the surface normal at the intersection point.
 
-### Key Features
-- The **ray origin** is located at the center of the scene in the \(x\)-\(y\) plane \((0, 0)\), and slightly in front of the camera along the \(z\)-axis at \(z = 0\). The ray direction is computed from the pixel's normalized screen coordinates.
+#### Key Features
+- The **ray origin** is located at the center of the scene in the \(x\)-\(y\) plane \((0, 0)\), and slightly in front of the camera along the \(z\)-axis at \(z = -1\). The ray direction is computed from the pixel's normalized screen coordinates.
 - **Device functions** enable modular computations:
   - `normalize_vector`: Normalizes a vector.
   - `dot_product`: Computes the dot product of two vectors.
@@ -29,7 +44,7 @@ The `render` function is the main kernel that performs ray tracing. It works as 
 
 ---
 
-## 2. Ray-Sphere Intersection Test
+### 2. Ray-Sphere Intersection Test
 
 The ray-sphere intersection is derived from the parametric equation of a ray and the implicit equation of a sphere:
 
