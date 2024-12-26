@@ -59,7 +59,7 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
 
 3. **Sphere Equation**:
 
-   $$\|mathbf{P} - \mathbf{C}\|^2 = R^2$$
+   $$\|\mathbf{P} - \mathbf{C}\|^2 = R^2$$
    
    where:
    - $\mathbf{P}$: A point on the sphere,
@@ -69,7 +69,7 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
 5. **Intersection**:
    Substituting the ray equation into the sphere equation:
 
-   $$\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2$$
+   $$\|\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2$$
    
    Expanding and simplifying:
    
