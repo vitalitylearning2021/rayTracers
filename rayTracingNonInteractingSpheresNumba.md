@@ -59,7 +59,7 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
 
 3. **Sphere Equation**:
 
-   $$\mathbf{P} - \mathbf{C}\|^2 = R^2$$
+   $$\|mathbf{P} - \mathbf{C}\|^2 = R^2$$
    
    where:
    - $\mathbf{P}$: A point on the sphere,
@@ -68,36 +68,32 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
 
 5. **Intersection**:
    Substituting the ray equation into the sphere equation:
-   \[
-   \|\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2
-   \]
+
+   $$\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2$$
+   
    Expanding and simplifying:
-   \[
-   t^2 \cdot (\mathbf{D} \cdot \mathbf{D}) + 2t \cdot (\mathbf{D} \cdot (\mathbf{O} - \mathbf{C})) + \| \mathbf{O} - \mathbf{C} \|^2 - R^2 = 0
-   \]
+   
+   $$t^2 \cdot (\mathbf{D} \cdot \mathbf{D}) + 2t \cdot (\mathbf{D} \cdot (\mathbf{O} - \mathbf{C})) + \| \mathbf{O} - \mathbf{C} \|^2 - R^2 = 0$$
 
    This is a quadratic equation:
-   \[
-   at^2 + bt + c = 0
-   \]
+   
+   $$at^2 + bt + c = 0$$
+   
    where:
-   \[
-   a = \mathbf{D} \cdot \mathbf{D}, \quad b = 2 \cdot (\mathbf{D} \cdot (\mathbf{O} - \mathbf{C})), \quad c = \| \mathbf{O} - \mathbf{C} \|^2 - R^2
-   \]
+
+   $$a = \mathbf{D} \cdot \mathbf{D}, \quad b = 2 \cdot (\mathbf{D} \cdot (\mathbf{O} - \mathbf{C})), \quad c = \| \mathbf{O} - \mathbf{C} \|^2 - R^2$$
 
    The discriminant determines intersection:
-   \[
-   \Delta = b^2 - 4ac
-   \]
 
-   If \(\Delta > 0\), the ray intersects the sphere, and the smallest \(t > 0\) gives the nearest intersection point:
-   \[
-   t = \frac{-b - \sqrt{\Delta}}{2a}
-   \]
+   $$\Delta = b^2 - 4ac$$
+
+   If $\Delta > 0$, the ray intersects the sphere, and the smallest $t > 0$ gives the nearest intersection point:
+
+   $$t = \frac{-b - \sqrt{\Delta}}{2a}$$
 
 ---
 
-## 3. Color Computation
+### 3. Color Computation
 
 The color of each pixel is computed based on the surface normal at the intersection point. The surface normal \(\mathbf{N}\) is:
 \[
