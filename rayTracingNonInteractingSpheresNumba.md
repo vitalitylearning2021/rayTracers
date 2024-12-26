@@ -49,7 +49,7 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
 
 1. **Ray Equation**:
    
-   $$mathbf{R}(t) = \mathbf{O} + t \cdot \mathbf{D}$$
+   $$\mathbf{R}(t) = \mathbf{O} + t \cdot \mathbf{D}$$
    
    where:
    - $\mathbf{R}(t)$: A point on the ray at parameter $t$,
@@ -58,15 +58,15 @@ The ray-sphere intersection is derived from the parametric equation of a ray and
    - $t$: Parameter along the ray.
 
 3. **Sphere Equation**:
-   \[
-   \|\mathbf{P} - \mathbf{C}\|^2 = R^2
-   \]
-   where:
-   - \(\mathbf{P}\): A point on the sphere,
-   - \(\mathbf{C}\): Center of the sphere,
-   - \(R\): Radius of the sphere.
 
-4. **Intersection**:
+   $$\mathbf{P} - \mathbf{C}\|^2 = R^2$$
+   
+   where:
+   - $\mathbf{P}$: A point on the sphere,
+   - $\mathbf{C}$: Center of the sphere,
+   - $R$: Radius of the sphere.
+
+5. **Intersection**:
    Substituting the ray equation into the sphere equation:
    \[
    \|\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2
