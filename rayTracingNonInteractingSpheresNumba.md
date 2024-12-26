@@ -36,7 +36,7 @@ The `render` function is the main kernel that performs ray tracing. It works as 
 - Calculates the color based on the surface normal at the intersection point.
 
 #### Key Features
-- The **ray origin** is located at the center of the scene in the \(x\)-\(y\) plane \((0, 0)\), and slightly in front of the camera along the \(z\)-axis at \(z = -1\). The ray direction is computed from the pixel's normalized screen coordinates.
+- The **ray origin** is located at the center of the scene in the $(x, y)$ plane $(0,0)$, and slightly in front of the camera along the $z$-axis at $z = -1$. The ray direction is computed from the pixel's normalized screen coordinates.
 - **Device functions** enable modular computations:
   - `normalize_vector`: Normalizes a vector.
   - `dot_product`: Computes the dot product of two vectors.
