@@ -1,8 +1,3 @@
----
-layout: default
-title: Ray Tracing with Numba: Phong Illumination Model
----
-
 <script type="text/javascript">
 MathJax = {
   tex: {
