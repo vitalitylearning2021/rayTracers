@@ -33,19 +33,7 @@ The ray-tracing algorithm renders spheres based on the Phong illumination model,
 #### Ambient Lighting
 Ambient light simulates light bouncing in the scene between non-rendered and rendered objects, so that parts of the object not directly exposed to the light source do not stay black. In other words, the ambient component simulates an indirect light scattered in all directions by the environment of average color $$\underline{I}_a$$ uniformly illuminating the object. It is modeled as:
 
-where:
-
- is the ambient light intensity,  .
-
- is the ambient reflection coefficient, .
-
- is the resulting ambient light contribution, also an RGB vector .
-
-This term accounts for global illumination effects, simulating light .
-
-- Represents the inherent intensity of ambient light in the environment. It is modeled as an RGB vector to account for color variations in the ambient light.
-- A surface property that dictates how much of the ambient light is reflected. Typical values range from .
-- The contribution of ambient light to the final color of the surface, computed as the element-wise product of  and .
+$$k_a \underline{I}_a $$
 
 #### Diffuse Lighting
 The diffuse component accounts for light scattered in all directions from a surface. It depends on the angle between the surface normal  and the light direction :
