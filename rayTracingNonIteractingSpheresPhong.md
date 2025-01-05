@@ -25,6 +25,7 @@ The ray-tracing algorithm renders spheres based on the Phong illumination model,
 - radius $$r$$;
 - a reflection coefficient $$0\leq k_d\leq 1$$ modelling diffuse reflection;
 - a reflection coefficient $$0\leq k_s\leq 1$$ modelling specular reflection;
+- a reflection coefficient $$0\leq k_a\leq 1$$ modelling ambient reflection;
 - shininess $$\alpha$$, a scalar value characterizing the surface roughness, the value of which generally falls between $$10$$ and $$50$$;
 - a single point light source illuminating the scene with $$(R, G, B)$$ color intensity $$\underline{I}_i(I_{i_r}, I_{i_g}, I_{i_b})$$;
 - ambient light color intensity $$\underline{I}_a(I_{a_r}, I_{a_g}, I_{a_b})$$;
