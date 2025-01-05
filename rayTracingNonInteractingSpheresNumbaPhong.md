@@ -40,112 +40,14 @@ The diffuse component accounts for light scattered uniformly in all directions f
 
 $$k_d (\hat{n}\cdot \hat{l}) \underline{I}_i $$
 
-where $$\hat{n}$$ is the normal at hit point and $$\hat{l}$$ is the unit vector from the hit point to the point light source.
+where $$\hat{n}$$ is the normal at hit point and $$\hat{l}$$ is the unit vector from the hit point to the point light source. The $$(\hat{n}\cdot \hat{l})$$ scalar product represents the projection of a unit-area portion of the impinging planar wavefront over the objecs' surface modelled as the tangent plane at the hit point.
 
 #### Specular Lighting
-The specular component models the mirror-like reflection of light and is determined by the angle between the view direction  and the reflection direction :
+The specular component models the mirror-like reflection of light and is determined by the angle between the view direction and the specular reflection direction. It is modelled as
 
-where:
+$$k_s (\hat{r}\cdot \hat{v})^\alpha \underline{I}_i $$
 
- is the specular reflection coefficient.
+where $$\hat{v}$$ is the view direction from the hit point to the observation point and $$\hat{r}$$ is the specular reflection direction. The specular reflection direction can be computed as
 
- is the shininess coefficient controlling the sharpness of the highlight.
-
- is the specular light intensity.
-
-The reflection direction  is computed as:
-
-#### Final Illumination Model
-The final color of a pixel is a combination of the three components:
-
-Each component is clamped to the range  to ensure valid RGB values.
-
----
-
-### Implementation Highlights
-
-GPU Acceleration: The code uses Numba's CUDA support to accelerate computations.
-
-Flexibility: The number of spheres can be adjusted easily by modifying the input data.
-
-Scene Parameters:
-
-A single light source with a fixed position.
-
-Spheres are non-interacting; there are no shadows or reflections.
-
-
-The ray-sphere intersection is derived from the parametric equation of a ray and the implicit equation of a sphere:
-
-#### Mathematical Derivation
-
-1. **Ray Equation**:
-   
-   $$\mathbf{R}(t) = \mathbf{O} + t \cdot \mathbf{D}$$
-   
-   where:
-   - $\mathbf{R}(t)$: A point on the ray at parameter $t$,
-   - $\mathbf{O}$: Ray origin,
-   - $\mathbf{D}$: Ray direction (normalized vector),
-   - $t$: Parameter along the ray.
-
-3. **Sphere Equation**:
-
-   $$\|\mathbf{P} - \mathbf{C}\|^2 = R^2$$
-   
-   where:
-   - $\mathbf{P}$: A point on the sphere,
-   - $\mathbf{C}$: Center of the sphere,
-   - $R$: Radius of the sphere.
-
-5. **Intersection**:
-   Substituting the ray equation into the sphere equation:
-
-   $$\|\mathbf{O} + t \cdot \mathbf{D} - \mathbf{C}\|^2 = R^2$$
-   
-   Expanding and simplifying:
-   
-   $$t^2 \cdot (\mathbf{D} \cdot \mathbf{D}) + 2t \cdot (\mathbf{D} \cdot (\mathbf{O} - \mathbf{C})) + \| \mathbf{O} - \mathbf{C} \|^2 - R^2 = 0$$
-
-   This is a quadratic equation:
-   
-   $$at^2 + bt + c = 0$$
-   
-   where:
-
-   $$a = \mathbf{D} \cdot \mathbf{D}, \quad b = 2 \cdot (\mathbf{D} \cdot (\mathbf{O} - \mathbf{C})), \quad c = \| \mathbf{O} - \mathbf{C} \|^2 - R^2$$
-
-   The discriminant determines intersection:
-
-   $$\Delta = b^2 - 4ac$$
-
-   If $\Delta > 0$, the ray intersects the sphere, and the smallest $t > 0$ gives the nearest intersection point:
-
-   $$t = \frac{-b - \sqrt{\Delta}}{2a}$$
-
----
-
-### 3. Color Computation
-
-The color of each pixel is computed based on the surface normal at the intersection point. The surface normal $\mathbf{N}$ is:
-
-$$\mathbf{N} = \frac{\mathbf{P} - \mathbf{C}}{R}$$
-
-where $\mathbf{P}$ is the intersection point.
-
-The computed normal is used to derive the color using the following mapping:
-
-$$\text{Color} = 0.5 \cdot (\mathbf{N} + 1.0)$$
-
-This maps the normal components from the range $[-1, 1]$ to $[0, 1]$ for RGB representation.
-
----
-
-### 4. Customizability
-
-The `ray_sphere_intersection` function can be replaced with other geometric intersection tests, such as ray-triangle intersections, to render scenes with arbitrary geometries.
-
-#### Example: Ray-Triangle Intersection
-A similar quadratic solution can be derived for triangle meshes, enabling more complex object rendering.
-
+$$\hat{r}=2(\hat{n} \cdot \hat{l})\hat{n}-\hat{l}$$
 
