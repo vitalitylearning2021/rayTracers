@@ -35,10 +35,12 @@ Ambient light simulates light bouncing in the scene between non-rendered and ren
 
 $$k_a \underline{I}_a $$
 
-#### Diffuse Lighting
-The diffuse component accounts for light scattered in all directions from a surface. It depends on the angle between the surface normal  and the light direction :
+#### Diffuse Lighting (Lambertian diffusion)
+The diffuse component accounts for light scattered uniformly in all directions from a surface. It depends on the angle between the surface normal and the light direction and is independent from the viewing point since light is diffused uniformly
 
-where  is the diffuse color.
+$$k_d (\hat{n}\cdot \hat{l}) \underline{I}_i $$
+
+where $$\hat{n}$$ is the normal at hit point and $$\hat{l}$$ is the unit vector from the hit point to the point light source.
 
 #### Specular Lighting
 The specular component models the mirror-like reflection of light and is determined by the angle between the view direction  and the reflection direction :
