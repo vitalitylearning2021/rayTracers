@@ -18,12 +18,12 @@ The ray-tracing algorithm renders spheres based on the Phong illumination model,
 
 - center position $$(x, y, z)$$;
 - radius $$r$$;
+- a single point light source illuminating the scene with $$(R, G, B)$$ color intensity $$\underline{I}_i=(I_{i_r}, I_{i_g}, I_{i_b})$$;
+- ambient light color intensity represented as an RGB vector $$\underline{I}_a=(I_{a_r}, I_{a_g}, I_{a_b})$$;
 - a reflection coefficient $$0\leq k_d\leq 1$$ modelling diffuse reflection;
 - a reflection coefficient $$0\leq k_s\leq 1$$ modelling specular reflection;
-- a reflection coefficient $$0\leq k_a\leq 1$$ modelling ambient reflection;
+- a reflection coefficient $$0\leq k_a\leq 1$$ modelling ambient reflection and determines how much ambient light the object's surface reflects ($$0$$ (no reflection) to $$1$$ (full reflection));
 - shininess $$\alpha$$, a scalar value characterizing the surface roughness, the value of which generally falls between $$10$$ and $$50$$;
-- a single point light source illuminating the scene with $$(R, G, B)$$ color intensity $$\underline{I}_i(I_{i_r}, I_{i_g}, I_{i_b})$$;
-- ambient light color intensity $$\underline{I}_a(I_{a_r}, I_{a_g}, I_{a_b})$$;
 - non-interacting spheres, meaning no mutual reflections or shadowing.
 
 ---
@@ -31,20 +31,20 @@ The ray-tracing algorithm renders spheres based on the Phong illumination model,
 ### The Phong Illumination Model
 
 #### Ambient Lighting
-The ambient component simulates indirect light uniformly illuminating the object. It is modeled as:
+Ambient light simulates light bouncing in the scene between non-rendered and rendered objects, so that parts of the object not directly exposed to the light source do not stay black. In other words, the ambient component simulates an indirect light scattered in all directions by the environment of average color $$\underline{I}_a$$ uniformly illuminating the object. It is modeled as:
 
 where:
 
- is the ambient light intensity, represented as an RGB vector .
+ is the ambient light intensity,  .
 
- is the ambient reflection coefficient, a scalar that determines how much ambient light the surface reflects.
+ is the ambient reflection coefficient, .
 
  is the resulting ambient light contribution, also an RGB vector .
 
-This term accounts for global illumination effects, simulating light scattered in all directions by the environment.
+This term accounts for global illumination effects, simulating light .
 
 - Represents the inherent intensity of ambient light in the environment. It is modeled as an RGB vector to account for color variations in the ambient light.
-- A surface property that dictates how much of the ambient light is reflected. Typical values range from 0 (no reflection) to 1 (full reflection).
+- A surface property that dictates how much of the ambient light is reflected. Typical values range from .
 - The contribution of ambient light to the final color of the surface, computed as the element-wise product of  and .
 
 #### Diffuse Lighting
