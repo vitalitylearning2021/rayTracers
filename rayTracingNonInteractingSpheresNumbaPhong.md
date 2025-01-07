@@ -40,7 +40,7 @@ The diffuse component accounts for light scattered uniformly in all directions f
 
 $$\max((\hat{n}\cdot \hat{l}),0) \underline{k}_d \odot \underline{I}_i $$
 
-where $$\hat{n}$$ is the normal at hit point and $$\hat{l}$$ is the unit vector from the hit point to the point light source. The $$(\hat{n}\cdot \hat{l})$$ scalar product represents the projection of a unit-area portion of the impinging planar wavefront over the objecs' surface modelled as the tangent plane at the hit point.
+where $$\hat{n}$$ is the normal at hit point and $$\hat{l}$$ is the unit vector from the hit point to the point light source. The $$(\hat{n}\cdot \hat{l})$$ scalar product represents the projection of a unit-area portion of the impinging planar wavefront over the objecs' surface modelled as the tangent plane at the hit point. It should be noticed that, if $$\hat{n}\cdot \hat{l}>0$$, the light is striking the surface at an angle less than $$90^\circ$$, contributing positively to the illumination. If, on the other side, $$\hat{n}\cdot \hat{l}\leq 0$$, the light is coming from behind or parallel to the surface, which should not contribute to the visible illumination, namely, the light source should be shadowed. By taking $$\max((\hat{n}\cdot \hat{l}),0)$$, we ensure that only light falling on the visible side of the surface contributes to the diffuse component.
 
 #### Specular Lighting
 The specular component models the mirror-like reflection of light and is determined by the angle between the view direction and the specular reflection direction. It is modelled as
