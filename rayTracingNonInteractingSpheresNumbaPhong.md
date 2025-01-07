@@ -38,14 +38,14 @@ $$\underline{k}_a \odot \underline{I}_a $$
 #### Diffuse Lighting (Lambertian diffusion)
 The diffuse component accounts for light scattered uniformly in all directions from a surface. It depends on the angle between the surface normal and the light direction and is independent from the viewing point since light is diffused uniformly
 
-$$(\hat{n}\cdot \hat{l}) \underline{k}_d \odot \underline{I}_i $$
+$$\max((\hat{n}\cdot \hat{l}),0) \underline{k}_d \odot \underline{I}_i $$
 
 where $$\hat{n}$$ is the normal at hit point and $$\hat{l}$$ is the unit vector from the hit point to the point light source. The $$(\hat{n}\cdot \hat{l})$$ scalar product represents the projection of a unit-area portion of the impinging planar wavefront over the objecs' surface modelled as the tangent plane at the hit point.
 
 #### Specular Lighting
 The specular component models the mirror-like reflection of light and is determined by the angle between the view direction and the specular reflection direction. It is modelled as
 
-$$(\hat{r}\cdot \hat{v})^\alpha \underline{k}_s \odot \underline{I}_i $$
+$$\max((\hat{r}\cdot \hat{v})^\alpha,0) \underline{k}_s \odot \underline{I}_i $$
 
 where $$\hat{v}$$ is the view direction from the hit point to the observation point and $$\hat{r}$$ is the specular reflection direction. The specular reflection direction can be computed as
 
