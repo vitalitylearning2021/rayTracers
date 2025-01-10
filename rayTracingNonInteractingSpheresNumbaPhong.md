@@ -51,7 +51,7 @@ where $$\hat{v}$$ is the view direction from the hit point to the observation po
 
 $$\hat{r}=2(\hat{n} \cdot \hat{l})\hat{n}-\hat{l}$$
 
-It should be noticed that, if  $$(\hat{r}\cdot \hat{v}) > 0$$, the reflected light is visible to the viewer, contributing to the specular highlight. If, on the other side, $$(\hat{r}\cdot \hat{v})\leq 0$, the reflection is directed away from the viewer, so it does not contribute to the highlight. Using $$\max((\hat{r}\cdot \hat{v})^\alpha,0)$$ ensures that specular highlights are computed only for visible reflections.
+It should be noticed that, if  $$(\hat{r}\cdot \hat{v}) > 0$$, the reflected light is visible to the viewer, contributing to the specular highlight. If, on the other side, $$(\hat{r}\cdot \hat{v})\leq 0$$, the reflection is directed away from the viewer, so it does not contribute to the highlight. Using $$\max((\hat{r}\cdot \hat{v})^\alpha,0)$$ ensures that specular highlights are computed only for visible reflections.
 
 
 
