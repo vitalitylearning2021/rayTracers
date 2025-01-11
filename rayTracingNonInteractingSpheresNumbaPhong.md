@@ -1,3 +1,8 @@
+---
+layout: default
+title: GPU Ray Tracing with Numba for Multiple Non-Interacting Spheres
+---
+
 <script type="text/javascript">
 MathJax = {
   tex: {
