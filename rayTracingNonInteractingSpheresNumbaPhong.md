@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ray Tracing with Numba: Phong Illumination Model
+title: Ray Tracing with Numba and the Phong Illumination Model
 ---
 
 <script type="text/javascript">
