@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GPU Ray Tracing with Numba for Multiple Non-Interacting Spheres
+title: Ray Tracing with Numba: Phong Illumination Model
 ---
 
 <script type="text/javascript">
