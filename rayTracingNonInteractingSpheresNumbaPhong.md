@@ -58,7 +58,17 @@ $$\hat{r}=2(\hat{n} \cdot \hat{l})\hat{n}-\hat{l}$$
 
 It should be noticed that, if  $$(\hat{r}\cdot \hat{v}) > 0$$, the reflected light is visible to the viewer, contributing to the specular highlight. If, on the other side, $$(\hat{r}\cdot \hat{v})\leq 0$$, the reflection is directed away from the viewer, so it does not contribute to the highlight. Using $$\max((\hat{r}\cdot \hat{v})^\alpha,0)$$ ensures that specular highlights are computed only for visible reflections.
 
+### Phong illumination
 
+The final color $$\underline{I}=(I_{R}, I_{G}, I_{B})$$ is then computed as
+
+$$\underline{I}=(I_{R}, I_{G}, I_{B}) = \underline{k}_a \odot \underline{I}_a + \max((\hat{n}\cdot \hat{l}),0) \underline{k}_d \odot \underline{I}_i  + \max((\hat{r}\cdot \hat{v})^\alpha,0) \underline{k}_s \odot \underline{I}_i$$
+
+### Color Normalization
+
+All color channels are set proportionally so the brightest color channel, if the brightest color channel is larger than $$1$$, namely 
+
+$$\underline{I}_{\alpha}=\frac{\underline{I}}{\max\(1,\max\(\underline{I}\)\)}, \;\;\;\; \alpha=R,G,B$$
 
 ### Bibliography
 
