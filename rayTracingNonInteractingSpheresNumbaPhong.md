@@ -68,7 +68,7 @@ $$\underline{I}=(I_{R}, I_{G}, I_{B}) = \underline{k}_a \odot \underline{I}_a + 
 
 All color channels are set proportionally so the brightest color channel, if the brightest color channel is larger than $$1$$, namely 
 
-$$\underline{I}_{\alpha}=\frac{\underline{I}}{\max\(1,\max\(\underline{I}\)\)}, \;\;\;\; \alpha=R,G,B$$
+$$\underline{I}_{\alpha}=\frac{\underline{I}}{\max\(1,\max\(\underline{I}\)\)}, \alpha=R,G,B$$
 
 ### Bibliography
 
